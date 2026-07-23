@@ -32,7 +32,7 @@ replication strategies (quorum+LWW and Raft) to feel the actual tradeoff.
 **[GateKeeper](https://github.com/saathvik-codes/gatekeeper)** — API gateway with JWT auth, RBAC, sliding-window rate limiting.
 
 <p align="center">
-  <img src="https://github-readme-stats-sigma-eight.vercel.app/api?username=saathvik-codes&theme=dark&hide_border=false&include_all_commits=true&count_private=true" /><br/>
+  <img src="https://github-readme-stats-psi-topaz.vercel.app/api?username=saathvik-codes&theme=dark&hide_border=false&include_all_commits=true&count_private=true" /><br/>
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=saathvik-codes&theme=dark&hide_border=false" /><br/>
-  <img src="https://github-readme-stats-sigma-eight.vercel.app/api/top-langs/?username=saathvik-codes&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact" />
+  <img src="https://github-readme-stats-psi-topaz.vercel.app/api/top-langs/?username=saathvik-codes&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact" />
 </p>
