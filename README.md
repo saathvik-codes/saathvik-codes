@@ -3,25 +3,15 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&width=600&lines=Wrote+a+Raft+consensus+engine+from+scratch+in+Go;Chaos-tested+it+by+killing+nodes+mid-traffic;Still+debugging+something+at+2am+probably" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&width=600&lines=Wrote+a+Raft+consensus+engine+from+scratch+in+Go;Chaos-tested+it+by+killing+nodes+mid-traffic" />
 </p>
 
-Hey, I'm Saathvik — I work backend at **Caterworld.ai** and spend my free time
-building things that most people would just reach for a library for, because
-I want to actually understand what's happening underneath. Most recently that
-meant implementing Raft leader election and log replication by hand in Go,
-then writing a harness that kills random nodes under load just to see if it
-survives (it does — 17,658 writes, 0 failures, receipts in the repo).
-
-I like backend systems that have to hold up under real conditions — multi-
-tenant isolation that can't leak, rate limiters that can't be gamed, stores
-that can't lose data on a crash. If it hasn't been tested against failure,
-I don't consider it done.
+I build backend systems that have to hold up under real conditions — multi-
+tenant isolation that can't leak, stores that can't lose data on a crash. If
+it hasn't been tested against failure, I don't consider it done.
 
 - 🛠️ Right now: `QuorumDB` — a distributed KV store, built twice with two
-  different replication strategies (quorum+LWW and Raft) so I could feel the
-  actual tradeoff instead of reading about it
-- 🧠 Java/Spring Boot by day, Go for systems-level stuff on the side
+  replication strategies (quorum+LWW and Raft) to feel the actual tradeoff
 - 📫 saathvikk202@gmail.com
 
 <p align="center">
@@ -30,7 +20,7 @@ I don't consider it done.
   <a href="https://saathvik-kalepu.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-000000?logo=vercel&logoColor=white" /></a>
 </p>
 
-### What I actually reach for
+### Stack
 <p>
   <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=flat-square&logo=openjdk&logoColor=white" />
   <img src="https://img.shields.io/badge/go-%2300ADD8.svg?style=flat-square&logo=go&logoColor=white" />
@@ -42,25 +32,20 @@ I don't consider it done.
   <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=flat-square&logo=docker&logoColor=white" />
 </p>
 
-### Projects worth actually looking at
+### Projects worth a look
 
-**[QuorumDB](https://github.com/saathvik-codes/quorumdb)** — distributed KV store, two replication engines (quorum+LWW and a from-scratch Raft), LSM storage with bloom filters + compaction, chaos-tested under live node failures. *Go, zero dependencies.*
+**[QuorumDB](https://github.com/saathvik-codes/quorumdb)** — distributed KV store, quorum+LWW and a from-scratch Raft implementation, chaos-tested under live node failures.
 
-**[HiveCRM](https://github.com/saathvik-codes/hivecrm)** — multi-tenant SaaS CRM where tenant isolation is enforced at the repository layer, not just the API — verified a cross-tenant fetch actually 404s. *Spring Boot, PostgreSQL.*
+**[HiveCRM](https://github.com/saathvik-codes/hivecrm)** — multi-tenant SaaS CRM with tenant isolation enforced at the repository layer.
 
-**[TaskWave](https://github.com/saathvik-codes/taskwave)** — real-time collaborative Kanban boards, live activity feed over raw STOMP/WebSocket frames. *Spring Boot, Next.js.*
+**[TaskWave](https://github.com/saathvik-codes/taskwave)** — real-time collaborative Kanban boards over STOMP/WebSocket.
 
-**[FraudShield](https://github.com/saathvik-codes/fraudshield)** — composable rules engine for transaction fraud (velocity checks, new-beneficiary flags, large-amount thresholds). *Spring Boot, MongoDB.*
+**[FraudShield](https://github.com/saathvik-codes/fraudshield)** — composable rules engine for transaction fraud detection.
 
-**[GateKeeper](https://github.com/saathvik-codes/gatekeeper)** — API gateway: JWT + API-key auth, per-route RBAC, sliding-window rate limiting. *Spring Boot.*
-
-<p align="center">
-  <img src="https://github-readme-stats-sigma-eight.vercel.app/api?username=saathvik-codes&theme=tokyonight&hide_border=true&show_icons=true&include_all_commits=true&count_private=true" height="165"/>
-  <img src="https://github-readme-stats-sigma-eight.vercel.app/api/top-langs/?username=saathvik-codes&theme=tokyonight&hide_border=true&layout=compact&include_all_commits=true&count_private=true" height="165"/>
-</p>
+**[GateKeeper](https://github.com/saathvik-codes/gatekeeper)** — API gateway with JWT auth, RBAC, sliding-window rate limiting.
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=saathvik-codes&theme=tokyonight&hide_border=true" />
+  <img src="https://github-readme-stats.vercel.app/api?username=saathvik-codes&theme=dark&hide_border=false&include_all_commits=true&count_private=true" /><br/>
+  <img src="https://nirzak-streak-stats.vercel.app/?user=saathvik-codes&theme=dark&hide_border=false" /><br/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=saathvik-codes&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact" />
 </p>
-
-<p align="center"><i>Building twice — once to make it work, once to make it survive.</i></p>
