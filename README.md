@@ -10,27 +10,14 @@ I build backend systems that have to hold up under real conditions — multi-
 tenant isolation that can't leak, stores that can't lose data on a crash. If
 it hasn't been tested against failure, I don't consider it done.
 
-- 🛠️ Right now: `QuorumDB` — a distributed KV store, built twice with two
-  replication strategies (quorum+LWW and Raft) to feel the actual tradeoff
-- 📫 saathvikk202@gmail.com
+Right now: `QuorumDB` — a distributed KV store, built twice with two
+replication strategies (quorum+LWW and Raft) to feel the actual tradeoff.
 
-<p align="center">
-  <a href="https://linkedin.com/in/saathvik-kalepu-17041228b/"><img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" /></a>
-  <a href="mailto:saathvikk202@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white" /></a>
-  <a href="https://saathvik-kalepu.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-000000?logo=vercel&logoColor=white" /></a>
-</p>
+## Socials:
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/saathvik-kalepu-17041228b/) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:saathvikk202@gmail.com) [![Portfolio](https://img.shields.io/badge/Portfolio-000000?logo=vercel&logoColor=white)](https://saathvik-kalepu.vercel.app/)
 
-### Stack
-<p>
-  <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=flat-square&logo=openjdk&logoColor=white" />
-  <img src="https://img.shields.io/badge/go-%2300ADD8.svg?style=flat-square&logo=go&logoColor=white" />
-  <img src="https://img.shields.io/badge/springboot-%236DB33F.svg?style=flat-square&logo=spring-boot&logoColor=white" />
-  <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat-square&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/Next-black?style=flat-square&logo=next.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/postgresql-%23316192.svg?style=flat-square&logo=postgresql&logoColor=white" />
-  <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=flat-square&logo=mongodb&logoColor=white" />
-  <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=flat-square&logo=docker&logoColor=white" />
-</p>
+# Tech Stack:
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white) ![Spring Boot](https://img.shields.io/badge/springboot-%236DB33F.svg?style=for-the-badge&logo=spring-boot&logoColor=white) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/postgresql-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ### Projects worth a look
 
