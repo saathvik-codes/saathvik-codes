@@ -15,6 +15,7 @@ import datetime as dt
 import json
 import os
 import re
+import time
 import urllib.parse
 import urllib.request
 from collections import Counter
@@ -33,13 +34,13 @@ BADGES = {
     "java": ("Java", "ED8B00", "openjdk", "white"), "go": ("Go", "00ADD8", "go", "white"),
     "python": ("Python", "3776AB", "python", "white"), "typescript": ("TypeScript", "3178C6", "typescript", "white"),
     "javascript": ("JavaScript", "F7DF1E", "javascript", "black"), "kotlin": ("Kotlin", "7F52FF", "kotlin", "white"),
-    "c++": ("C++", "00599C", "cplusplus", "white"), "spring boot": ("Spring Boot", "6DB33F", "spring-boot", "white"),
-    "next.js": ("Next.js", "000000", "next.js", "white"), "react": ("React", "20232A", "react", "61DAFB"),
+    "c++": ("C++", "00599C", "cplusplus", "white"), "spring boot": ("Spring Boot", "6DB33F", "springboot", "white"),
+    "next.js": ("Next.js", "000000", "nextdotjs", "white"), "react": ("React", "20232A", "react", "61DAFB"),
     "fastapi": ("FastAPI", "009688", "fastapi", "white"), "flask": ("Flask", "000000", "flask", "white"),
     "postgresql": ("PostgreSQL", "316192", "postgresql", "white"), "docker": ("Docker", "0DB7ED", "docker", "white"),
     "duckdb": ("DuckDB", "FFF000", "duckdb", "black"), "sqlite": ("SQLite", "003B57", "sqlite", "white"),
     "langchain": ("LangChain", "1C3C3C", "langchain", "white"), "ollama": ("Ollama", "000000", "ollama", "white"),
-    "pandas": ("pandas", "150458", "pandas", "white"), "three.js": ("Three.js", "000000", "three.js", "white"),
+    "pandas": ("pandas", "150458", "pandas", "white"), "three.js": ("Three.js", "000000", "threedotjs", "white"),
     "node.js": ("Node.js", "339933", "nodedotjs", "white"), "mongodb": ("MongoDB", "47A248", "mongodb", "white"),
     "redis": ("Redis", "DC382D", "redis", "white"), "huggingface": ("Hugging Face", "FFD21E", "huggingface", "black"),
 }
@@ -51,8 +52,14 @@ def fetch(url: str, api: bool = False):
         headers["Accept"] = "application/vnd.github+json"
         if TOKEN:
             headers["Authorization"] = f"Bearer {TOKEN}"
-    with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as r:
-        return json.load(r)
+    for attempt in range(4):                       # a slow or dropped response is retried, not fatal
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=45) as r:
+                return json.load(r)
+        except Exception:
+            if attempt == 3:
+                raise
+            time.sleep(2 * (attempt + 1))
 
 
 def ago(iso: str) -> str:
@@ -85,10 +92,44 @@ def norm(tag: str) -> str:
     return re.sub(r"\s*\d+(\.\d+)*$", "", tag.strip().lower())      # "Next.js 16" -> "next.js"
 
 
-def badge(key: str) -> str:
+NAMED_COLOURS = {"white": "#ffffff", "black": "#000000"}
+
+
+def icon_path(slug: str) -> str:
+    """The glyph's outline from the Simple Icons set (24x24), or "" if it can't be fetched (the badge is then text only)."""
+    try:
+        req = urllib.request.Request(f"https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/{slug}.svg", headers={"User-Agent": "profile-readme"})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            m = re.search(r'\sd="([^"]+)"', r.read().decode("utf-8"))
+            return m.group(1) if m else ""
+    except Exception:
+        return ""
+
+
+def badge_file(key: str) -> str:
+    """Draws one 'for the badge' badge as a standalone SVG in assets/badges/ and returns its README markdown.
+
+    Hosting the badges in this repository (not on a third-party image service) means they can never fail to load."""
     label, colour, logo, logo_colour = BADGES[key]
-    return (f"![{label}](https://img.shields.io/badge/{urllib.parse.quote(label.replace('-', '--'))}-%23{colour}.svg"
-            f"?style=for-the-badge&logo={logo}&logoColor={logo_colour})")
+    text = label.upper()
+    background = f"#{colour}"
+    light = sum(int(colour[i:i + 2], 16) * w for i, w in ((0, 0.299), (2, 0.587), (4, 0.114))) > 150
+    text_fill = "#000000" if light else "#ffffff"
+    glyph = icon_path(logo)
+    text_x = 34 if glyph else 12
+    text_w = round(len(text) * 9.4)
+    width = text_x + text_w + 12
+    logo_fill = NAMED_COLOURS.get(logo_colour, f"#{logo_colour}")
+    glyph_svg = f'<path transform="translate(11,7) scale(0.5833)" fill="{logo_fill}" d="{glyph}"/>' if glyph else ""
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="28" viewBox="0 0 {width} 28" role="img" aria-label="{label}">'
+           f'<title>{label}</title><rect width="{width}" height="28" rx="3" fill="{background}"/>{glyph_svg}'
+           f'<text x="{text_x}" y="18" fill="{text_fill}" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11" '
+           f'font-weight="bold" textLength="{text_w}" lengthAdjust="spacing">{text}</text></svg>\n')
+    folder = ROOT / "assets" / "badges"
+    folder.mkdir(parents=True, exist_ok=True)
+    name = re.sub(r"[^a-z0-9]+", "-", key) + ".svg"
+    (folder / name).write_text(svg, encoding="utf-8")
+    return f"![{label}](assets/badges/{name})"
 
 
 def repo_key(p: dict) -> str:
@@ -118,11 +159,19 @@ def main() -> None:
     typing = ("\n  <img src=\"https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3000&pause=1000&color=38BDF8"
               "&center=true&vCenter=true&width=600&lines=" + ";".join(urllib.parse.quote_plus(l) for l in lines) + "\" />\n")
 
-    # right now: the flagship project pushed to most recently
-    flagship_repos = [by_name[repo_key(p)] for p in flagships if repo_key(p) in by_name]
-    latest = max(flagship_repos, key=lambda r: r["pushed_at"]) if flagship_repos else None
-    now_line = (f"Right now: [`{latest['name']}`]({latest['html_url']}): {short(latest['description'], 120)} "
-                f"(last push {ago(latest['pushed_at'])})." if latest else "")
+    # right now: whichever public project was pushed to most recently, with its latest commit message.
+    # (The profile repo itself is skipped, otherwise this script's own commits would always win.)
+    active = [r for r in repos if r["name"].lower() != OWNER.lower()]
+    latest = max(active, key=lambda r: r["pushed_at"]) if active else None
+    now_line = ""
+    if latest:
+        try:
+            newest = fetch(f"https://api.github.com/repos/{OWNER}/{latest['name']}/commits?per_page=1", api=True)[0]
+            message = short(newest["commit"]["message"].splitlines()[0], 90)
+        except Exception:
+            message = short(latest["description"], 90)
+        when = dt.datetime.fromisoformat(latest["pushed_at"].replace("Z", "+00:00")).strftime("%d %b %Y, %H:%M UTC")
+        now_line = f"\nRight now: working in [`{latest['name']}`]({latest['html_url']}), latest commit: “{message}” ({when}).\n"
 
     # socials: the same three badges as always, with live values
     linkedin = next((s["href"] for s in content["socialLinks"] if "linkedin" in s["href"]), "")
@@ -166,7 +215,9 @@ def main() -> None:
                 if ALIASES.get(norm(t), norm(t)) in BADGES:
                     score[ALIASES.get(norm(t), norm(t))] += weight
     top = [k for k, _ in score.most_common(MAX_BADGES)]
-    tech = "\n" + " ".join(badge(k) for k in top) + "\n"
+    for stale in (ROOT / "assets" / "badges").glob("*.svg"):      # drop badges for technologies no longer shown
+        stale.unlink()
+    tech = "\n" + " ".join(badge_file(k) for k in top) + "\n"
 
     # projects: the portfolio's flagship list, with the live link from each repo's homepage
     projects = []

@@ -12,7 +12,9 @@ I build backend systems that have to hold up under real conditions — multi-
 tenant isolation that can't leak, stores that can't lose data on a crash. If
 it hasn't been tested against failure, I don't consider it done.
 
-<!--NOW-->Right now: [`querymind`](https://github.com/saathvik-codes/querymind): Natural-language analytics interface over 1M+ real UK retail transactions — NL2SQL via LangChain/DuckDB… (last push today).<!--/NOW-->
+<!--NOW-->
+Right now: working in [`Serenity-Mental-Wellness-Platform`](https://github.com/saathvik-codes/Serenity-Mental-Wellness-Platform), latest commit: “Landscape is a full-width faded backdrop, not a framed banner” (24 Nov 2026, 09:31 UTC).
+<!--/NOW-->
 
 ## Socials:
 <!--SOCIALS-->
@@ -21,7 +23,7 @@ it hasn't been tested against failure, I don't consider it done.
 
 # Tech Stack:
 <!--TECH-->
-![Python](https://img.shields.io/badge/Python-%233776AB.svg?style=for-the-badge&logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-%23009688.svg?style=for-the-badge&logo=fastapi&logoColor=white) ![Go](https://img.shields.io/badge/Go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white) ![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Next.js](https://img.shields.io/badge/Next.js-%23000000.svg?style=for-the-badge&logo=next.js&logoColor=white) ![C++](https://img.shields.io/badge/C%2B%2B-%2300599C.svg?style=for-the-badge&logo=cplusplus&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black) ![React](https://img.shields.io/badge/React-%2320232A.svg?style=for-the-badge&logo=react&logoColor=61DAFB) ![LangChain](https://img.shields.io/badge/LangChain-%231C3C3C.svg?style=for-the-badge&logo=langchain&logoColor=white) ![DuckDB](https://img.shields.io/badge/DuckDB-%23FFF000.svg?style=for-the-badge&logo=duckdb&logoColor=black) ![Docker](https://img.shields.io/badge/Docker-%230DB7ED.svg?style=for-the-badge&logo=docker&logoColor=white) ![Kotlin](https://img.shields.io/badge/Kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-%23000000.svg?style=for-the-badge&logo=flask&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-%236DB33F.svg?style=for-the-badge&logo=spring-boot&logoColor=white) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Python](assets/badges/python.svg) ![FastAPI](assets/badges/fastapi.svg) ![Go](assets/badges/go.svg) ![Java](assets/badges/java.svg) ![TypeScript](assets/badges/typescript.svg) ![Next.js](assets/badges/next-js.svg) ![C++](assets/badges/c-.svg) ![JavaScript](assets/badges/javascript.svg) ![React](assets/badges/react.svg) ![LangChain](assets/badges/langchain.svg) ![DuckDB](assets/badges/duckdb.svg) ![Docker](assets/badges/docker.svg) ![Kotlin](assets/badges/kotlin.svg) ![Flask](assets/badges/flask.svg) ![Spring Boot](assets/badges/spring-boot.svg) ![PostgreSQL](assets/badges/postgresql.svg)
 <!--/TECH-->
 
 ### Projects worth a look
