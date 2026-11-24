@@ -13,7 +13,7 @@ tenant isolation that can't leak, stores that can't lose data on a crash. If
 it hasn't been tested against failure, I don't consider it done.
 
 <!--NOW-->
-Right now: working in [`Serenity-Mental-Wellness-Platform`](https://github.com/saathvik-codes/Serenity-Mental-Wellness-Platform), latest commit: “Landscape is a full-width faded backdrop, not a framed banner” (24 Nov 2026, 09:31 UTC).
+Right now: working in [`Unicounsel-frontend`](https://github.com/saathvik-codes/Unicounsel-frontend), latest commit: “Honest landing page with illustrations and counts from the dataset; accounts handled by…” (24 Nov 2026, 19:06 UTC).
 <!--/NOW-->
 
 ## Socials:
