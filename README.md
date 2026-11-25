@@ -13,7 +13,7 @@ tenant isolation that can't leak, stores that can't lose data on a crash. If
 it hasn't been tested against failure, I don't consider it done.
 
 <!--NOW-->
-Right now: working in [`Taskvise-flask`](https://github.com/saathvik-codes/Taskvise-flask), latest commit: “Taskvise: remove blocking preloader, scope scroll lock to dashboards” (25 Nov 2026, 11:27 UTC).
+Right now: working in [`Crowdfunding-Platform`](https://github.com/saathvik-codes/Crowdfunding-Platform), latest commit: “Crowdfunding web: FundStarter name and the real favicon/app icon set” (25 Nov 2026, 12:58 UTC).
 <!--/NOW-->
 
 ## Socials:
