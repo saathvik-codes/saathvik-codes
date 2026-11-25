@@ -13,7 +13,7 @@ tenant isolation that can't leak, stores that can't lose data on a crash. If
 it hasn't been tested against failure, I don't consider it done.
 
 <!--NOW-->
-Right now: working in [`Unicounsel-frontend`](https://github.com/saathvik-codes/Unicounsel-frontend), latest commit: “Honest landing page with illustrations and counts from the dataset; accounts handled by…” (24 Nov 2026, 19:06 UTC).
+Right now: working in [`Taskvise-flask`](https://github.com/saathvik-codes/Taskvise-flask), latest commit: “Taskvise: remove blocking preloader, scope scroll lock to dashboards” (25 Nov 2026, 11:27 UTC).
 <!--/NOW-->
 
 ## Socials:
