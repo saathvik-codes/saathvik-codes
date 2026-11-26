@@ -13,7 +13,7 @@ tenant isolation that can't leak, stores that can't lose data on a crash. If
 it hasn't been tested against failure, I don't consider it done.
 
 <!--NOW-->
-Right now: working in [`Taskvise-flask`](https://github.com/saathvik-codes/Taskvise-flask), latest commit: “Hand the old pages over to the Next.js app: Google sign-in hand-off, onboarding page…” (25 Nov 2026, 13:52 UTC).
+Right now: working in [`Unicounsel`](https://github.com/saathvik-codes/Unicounsel), latest commit: “Refresh live data snapshot” (26 Nov 2026, 12:33 UTC).
 <!--/NOW-->
 
 ## Socials:
